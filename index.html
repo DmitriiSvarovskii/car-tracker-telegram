@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Обеспечивает адаптивное масштабирование на мобильных устройствах -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Consumables Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Шапка с заголовком и кнопкой отмены -->
+        <header>
+            <h1 id="page-title">Создать запись</h1>
+            <button id="cancel-button" class="hidden">✕</button>
+        </header>
+
+        <!-- Основное содержимое -->
+        <main>
+            <!-- Форма создания записи -->
+            <form id="record-form">
+                <div class="form-group">
+                    <label for="consumable-type">Тип расходника</label>
+                    <select id="consumable-type">
+                        <option value="" selected disabled>Выберите тип расходника</option>
+                        <optgroup label="Основные расходники и ТО">
+                            <option value="oil_engine">Масло двигателя</option>
+                            <option value="oil_filter">Масляный фильтр</option>
+                            <option value="air_filter">Воздушный фильтр</option>
+                            <option value="cabin_filter">Салонный фильтр</option>
+                            <option value="fuel_filter">Топливный фильтр</option>
+                            <option value="coolant">Жидкость охлаждения (антифриз)</option>
+                            <option value="brake_fluid">Тормозная жидкость</option>
+                            <option value="power_steering_fluid">Жидкость ГУР</option>
+                            <option value="transmission_oil">Масло в коробке передач</option>
+                        </optgroup>
+                        <optgroup label="Тормозная система">
+                            <option value="brake_system">Замена тормозных колодок и/или дисков</option>
+                        </optgroup>
+                        <optgroup label="Подвеска и рулевое">
+                            <option value="shock_absorbers">Замена амортизаторов</option>
+                            <option value="suspension_components">Замена сайлентблоков, шаровых, рулевых наконечников
+                            </option>
+                            <option value="alignment">Сход-развал</option>
+                        </optgroup>
+                        <optgroup label="Шины">
+                            <option value="tire_change">Переобувка шин (зима/лето)</option>
+                            <option value="tire_purchase">Покупка шин</option>
+                        </optgroup>
+                        <optgroup label="Аккумулятор">
+                            <option value="battery">Аккумулятор</option>
+                        </optgroup>
+                        <optgroup label="Прочее">
+                            <option value="other_timing">Замена ремня ГРМ / цепи ГРМ</option>
+                            <option value="other_spark">Замена свечей зажигания / накала</option>
+                            <option value="other_injectors">Промывка форсунок</option>
+                            <option value="other_radiator">Промывка радиатора</option>
+                            <option value="other_cleaning">Чистка дроссельной заслонки / EGR / турбины</option>
+                            <option value="other_additional">Установленные дополнительные элементы</option>
+                        </optgroup>
+                        <optgroup label="Заправки кондиционера">
+                            <option value="ac_refill">Заправка кондиционера</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <!-- Контейнер для специфичных полей, зависящих от выбранного типа -->
+                <div id="specific-fields"></div>
+            </form>
+        </main>
+
+        <!-- Футер с кнопками под формой (по умолчанию скрыт) -->
+        <footer id="create-footer" style="display: none;">
+            <button id="save-record">Сохранить</button>
+        </footer>
+
+        <!-- Нижнее меню навигации -->
+        <nav class="bottom-nav">
+            <button class="nav-button" data-page="create">Создать запись</button>
+            <button class="nav-button" data-page="checkpoint">Проверка</button>
+            <button class="nav-button" data-page="history">История</button>
+            <button class="nav-button" data-page="settings">Настройки</button>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
