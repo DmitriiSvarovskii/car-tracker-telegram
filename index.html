@@ -4,6 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приветствие Telegram Mini App</title>
+    <!-- Подключаем скрипт Telegram Web App в head -->
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <style>
+        :root {
+            --safe-area-top: 0px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            /* Верхний отступ с учётом safe area */
+            padding-top: var(--safe-area-top);
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+        }
+
+        main {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Привет!</h1>
+    </header>
+    <main>
+        <p>Это тестовое приложение для проверки safe area в Telegram Web App.</p>
+    </main>
+    <script>
+        window.addEventListener('load', function () {
+            // Сообщаем Telegram, что приложение готово
+            Telegram.WebApp.ready();
+            // Если API предоставляет safeAreaInset, используем его значение
+            if (Telegram.WebApp.safeAreaInset) {
+                document.documentElement.style.setProperty('--safe-area-top', Telegram.WebApp.safeAreaInset.top + 'px');
+                console.log('Safe area top:', Telegram.WebApp.safeAreaInset.top);
+            } else {
+                console.warn('Telegram.WebApp.safeAreaInset не найден');
+            }
+        });
+    </script>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Consumables Tracker</title>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     <link rel="stylesheet" href="style.css">
@@ -12,7 +70,6 @@
 
 <body>
     <div id="app">
-        <!-- Шапка с заголовком и кнопкой отмены -->
         <header>
             <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
 
@@ -36,9 +93,7 @@
             <button id="cancel-button" class="hidden">✕</button>
         </header>
 
-        <!-- Основное содержимое -->
         <main>
-            <!-- Форма создания записи -->
             <form id="record-form">
                 <div class="form-group">
                     <label for="consumable-type">Тип расходника</label>
@@ -84,17 +139,14 @@
                         </optgroup>
                     </select>
                 </div>
-                <!-- Контейнер для специфичных полей, зависящих от выбранного типа -->
                 <div id="specific-fields"></div>
             </form>
         </main>
 
-        <!-- Футер с кнопками под формой (по умолчанию скрыт) -->
         <footer id="create-footer" style="display: none;">
             <button id="save-record">Сохранить</button>
         </footer>
 
-        <!-- Нижнее меню навигации -->
         <nav class="bottom-nav">
             <button class="nav-button" data-page="create">Создать запись</button>
             <button class="nav-button" data-page="checkpoint">Проверка</button>
@@ -107,4 +159,4 @@
 
 </body>
 
-</html>
+</html> -->
