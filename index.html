@@ -56,21 +56,19 @@
     </main>
     <script>
         window.addEventListener('load', function () {
-            // Уведомляем Telegram, что приложение готово
             Telegram.WebApp.ready();
 
-            // Запрашиваем полноэкранный режим, если он не активен
             if (!Telegram.WebApp.isFullscreen) {
                 Telegram.WebApp.requestFullscreen();
             }
 
-            // Устанавливаем safe area отступ сверху, если он доступен
-            if (Telegram.WebApp.safeAreaInset) {
-                document.documentElement.style.setProperty('--safe-area-top', Telegram.WebApp.safeAreaInset.top + 'px');
-                console.log('Safe area top:', Telegram.WebApp.safeAreaInset.top);
-            } else {
-                console.warn('Telegram.WebApp.safeAreaInset не найден');
-            }
+            // Приоритет отдаем contentSafeAreaInset, затем safeAreaInset, если первое недоступно
+            const safeTop = Telegram.WebApp.contentSafeAreaInset
+                ? Telegram.WebApp.contentSafeAreaInset.top
+                : (Telegram.WebApp.safeAreaInset ? Telegram.WebApp.safeAreaInset.top : 0);
+
+            document.documentElement.style.setProperty('--safe-area-top', safeTop + 'px');
+            console.log('Safe area top:', safeTop);
         });
     </script>
 </body>
