@@ -3,17 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- Обеспечивает адаптивное масштабирование на мобильных устройствах -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Consumables Tracker</title>
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
     <div id="app">
         <!-- Шапка с заголовком и кнопкой отмены -->
         <header>
-            <script src="https://telegram.org/js/telegram-web-app.js"></script>
+            <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+
             <script>
                 Telegram.WebApp.expand();
                 function enterFullscreen() {
@@ -25,7 +27,9 @@
                     enterFullscreen();
                 });
                 window.addEventListener('load', function () {
-                    document.documentElement.style.setProperty('--safe-area-top', Telegram.WebApp.safeAreaInsets.top + 'px');
+                    Telegram.WebApp.ready();
+                    document.documentElement.style.setProperty('--safe-area-top', Telegram.WebApp.safeAreaInset.top + 'px');
+                    console.log('Safe area top:', Telegram.WebApp.safeAreaInset.top);
                 });
             </script>
             <h1 id="page-title">Создать запись</h1>
