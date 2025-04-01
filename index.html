@@ -13,6 +13,19 @@
     <div id="app">
         <!-- Шапка с заголовком и кнопкой отмены -->
         <header>
+            <script src="https://telegram.org/js/telegram-web-app.js"></script>
+            <script>
+                Telegram.WebApp.expand();
+                function enterFullscreen() {
+                    if (!Telegram.WebApp.isFullscreen) {
+                        Telegram.WebApp.requestFullscreen();
+                    }
+                }
+                Telegram.WebApp.onEvent('viewportChanged', function (event) {
+                    enterFullscreen();
+                });
+                document.documentElement.style.setProperty('--safe-area-top', Telegram.WebApp.safeAreaInsets.top + 'px');
+            </script>
             <h1 id="page-title">Создать запись</h1>
             <button id="cancel-button" class="hidden">✕</button>
         </header>
@@ -85,19 +98,7 @@
     </div>
 
     <script src="app.js"></script>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
-        Telegram.WebApp.expand();
-        function enterFullscreen() {
-            if (!Telegram.WebApp.isFullscreen) {
-                Telegram.WebApp.requestFullscreen();
-            }
-        }
-        Telegram.WebApp.onEvent('viewportChanged', function (event) {
-            enterFullscreen();
-        });
-        document.documentElement.style.setProperty('--safe-area-top', Telegram.WebApp.safeAreaInsets.top + 'px');
-    </script>
+
 </body>
 
 </html>

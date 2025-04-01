@@ -14,7 +14,6 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-size: 16px;
-    padding-top: calc(var(--safe-area-top, 0px));
 }
 
 /* Контейнер приложения с нижним отступом для меню */
@@ -31,7 +30,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
+    /* padding: 16px; */
+    padding-top: calc(var(--safe-area-top, 0px));
+
 }
 
 header h1 {
