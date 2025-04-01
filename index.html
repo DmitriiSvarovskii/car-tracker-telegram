@@ -96,10 +96,7 @@
         Telegram.WebApp.onEvent('viewportChanged', function (event) {
             enterFullscreen();
         });
-        if (window.Telegram && Telegram.WebApp && Telegram.WebApp.safeAreaInsets) {
-            const safeArea = Telegram.WebApp.safeAreaInsets;
-            document.body.style.paddingBottom = safeArea.bottom + 'px';
-        }
+        document.documentElement.style.setProperty('--safe-area-top', Telegram.WebApp.safeAreaInsets.top + 'px');
     </script>
 </body>
 
