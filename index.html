@@ -85,6 +85,18 @@
     </div>
 
     <script src="app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        Telegram.WebApp.expand();
+        function enterFullscreen() {
+            if (!Telegram.WebApp.isFullscreen) {
+                Telegram.WebApp.requestFullscreen();
+            }
+        }
+        Telegram.WebApp.onEvent('viewportChanged', function (event) {
+            enterFullscreen();
+        });
+    </script>
 </body>
 
 </html>
