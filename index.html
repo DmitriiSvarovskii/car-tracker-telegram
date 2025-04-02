@@ -4,82 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приветствие Telegram Mini App (Full Screen)</title>
-    <!-- Подключаем скрипт Telegram Web App до остальных скриптов -->
-    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: #fff;
-        }
-
-        :root {
-            --safe-area-top: 0px;
-        }
-
-        body {
-            /* Учитываем safe area и растягиваем контент на весь экран */
-            padding-top: var(--safe-area-top);
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            padding: 20px;
-            text-align: center;
-            background-color: #333;
-        }
-
-        main {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <h1>Привет!</h1>
-    </header>
-    <main>
-        <p>Это тестовое full-screen приложение для проверки safe area в Telegram Web App.</p>
-    </main>
-    <script>
-        window.addEventListener('load', function () {
-            Telegram.WebApp.ready();
-
-            if (!Telegram.WebApp.isFullscreen) {
-                Telegram.WebApp.requestFullscreen();
-            }
-
-            // Приоритет отдаем contentSafeAreaInset, затем safeAreaInset, если первое недоступно
-            const safeTop = Telegram.WebApp.contentSafeAreaInset
-                ? Telegram.WebApp.contentSafeAreaInset.top
-                : (Telegram.WebApp.safeAreaInset ? Telegram.WebApp.safeAreaInset.top : 0);
-
-            document.documentElement.style.setProperty('--safe-area-top', safeTop + 'px');
-            console.log('Safe area top:', safeTop);
-        });
-    </script>
-</body>
-
-</html>
-<!-- <!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Consumables Tracker</title>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     <link rel="stylesheet" href="style.css">
@@ -177,4 +101,4 @@
 
 </body>
 
-</html> -->
+</html>
