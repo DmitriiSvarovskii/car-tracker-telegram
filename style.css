@@ -30,7 +30,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 120px;
+    padding-top: 360px;
+    padding-left: 32px;
 
 }
 
@@ -54,7 +55,7 @@ header h1 {
 /* Основное содержимое */
 main {
     flex: 1;
-    padding: 72px;
+    padding: 32px;
 }
 
 /* Форма */
